@@ -1,0 +1,1 @@
+protoc src\calculatorpb\calculator.proto --go_out=plugins=grpc:.

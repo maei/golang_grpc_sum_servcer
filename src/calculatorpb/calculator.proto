@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package calulatorpb;
+option go_package = "calculatropb";
+
+message Calculator {
+  int32 a = 1;
+  int32 b = 2;
+}
+
+message CalculatorRequest {
+  Calculator calulation = 1;
+}
+
+message CalculatorResponse {
+  int32 result = 1;
+}
+
+service CalculatorService{
+  // Unary gRPC api definition
+  rpc Calc(CalculatorRequest) returns (CalculatorResponse){}
+}
