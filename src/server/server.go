@@ -32,8 +32,8 @@ func main() {
 
 func (s *server) Calc(ctx context.Context, req *calculatropb.CalculatorRequest) (*calculatropb.CalculatorResponse, error) {
 	logger.Info(fmt.Sprintf("request inq with req: %v", req))
-	a := req.GetCalulation().GetA()
-	b := req.GetCalulation().GetB()
+	a := req.GetCalculation().GetA()
+	b := req.GetCalculation().GetB()
 	result := a + b
 
 	res := &calculatropb.CalculatorResponse{Result: result}

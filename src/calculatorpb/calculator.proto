@@ -9,7 +9,7 @@ message Calculator {
 }
 
 message CalculatorRequest {
-  Calculator calulation = 1;
+  Calculator calculation = 1;
 }
 
 message CalculatorResponse {
