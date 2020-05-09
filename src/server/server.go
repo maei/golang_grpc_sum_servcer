@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/maei/golang_grpc_sum_servcer/src/calculatorpb"
+	"github.com/maei/golang_grpc_sum_servcer/src/services"
 	"github.com/maei/shared_utils_go/logger"
 	"google.golang.org/grpc"
 	"log"
@@ -34,7 +35,7 @@ func (s *server) Calc(ctx context.Context, req *calculatropb.CalculatorRequest) 
 	logger.Info(fmt.Sprintf("request inq with req: %v", req))
 	a := req.GetCalculation().GetA()
 	b := req.GetCalculation().GetB()
-	result := a + b
+	result := services.SumService.Sum(a, b)
 
 	res := &calculatropb.CalculatorResponse{Result: result}
 	return res, nil
