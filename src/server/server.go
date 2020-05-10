@@ -9,6 +9,7 @@ import (
 	"google.golang.org/grpc"
 	"log"
 	"net"
+	"os"
 )
 
 type server struct{}
@@ -16,7 +17,7 @@ type server struct{}
 func main() {
 	logger.Info("gRPC sum-calculator-server started")
 
-	lis, err := net.Listen("tcp", "0.0.0.0:50051")
+	lis, err := net.Listen("tcp", os.Getenv("SERVER_PORT"))
 	if err != nil {
 		logger.Error("error while listening gRPC Server", err)
 		log.Printf("error while listening gRPC Server %v", err)
